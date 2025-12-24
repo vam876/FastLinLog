@@ -9,7 +9,7 @@
 
 **智能解析 · AI 辅助 · 上下文知识库 · 安全告警分析 · 深度统计**
 
-[WEB日志分析工具链接](https://github.com/vam876/FastWLAT) | [Winux日志分析工具链接](https://github.com/vam876/FastWinLog)
+[WEB日志分析工具链接](https://github.com/vam876/FastWLAT) | [Windows日志分析工具链接](https://github.com/vam876/FastWinLog)
 
 </div>
 
