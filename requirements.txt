@@ -1,0 +1,9 @@
+# Linux Log Analyzer - Python Dependencies
+
+# Core dependencies
+pywebview>=4.0.0
+
+# Optional dependencies for better performance
+# Windows: pythonnet (for better Windows integration)
+# Linux: PyGObject (for GTK backend)
+# macOS: pyobjc (for Cocoa backend)
