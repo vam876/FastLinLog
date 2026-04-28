@@ -1,210 +1,157 @@
-# Linux Log Analyzer
+# FastLinLog - 轻量级Linux 日志安全分析工具
 
-一个强大的Linux日志分析工具,支持多种日志格式的解析、分析和可视化。
+<div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Status: Beta](https://img.shields.io/badge/status-beta-orange.svg)]()
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg )
+![Python](https://img.shields.io/badge/python-green.svg )
+![React](https://img.shields.io/badge/react-18-61dafb.svg )
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg )
 
-## ✨ 功能特性
+**智能解析 · AI 辅助 · 上下文知识库 · 可视化分析 · 深度统计**
 
-- 🔍 **多格式支持** - audit, secure, auth, btmp, wtmp, lastlog
-- 🏠 **多主机管理** - 自动识别和管理多主机日志
-- ⚡ **智能缓存** - SQLite缓存加速,批量处理优化
-- 📊 **实时统计** - 登录统计、安全分析、事件分布
-- 🎯 **智能解析** - 自动年份识别、事件分类、字段提取
-- 🖥️ **桌面应用** - 基于PyWebview的跨平台桌面应用
+[WEB日志分析工具链接](https://github.com/vam876/FastWLAT) | [Windows日志分析工具链接](https://github.com/vam876/FastWinLog)
 
-## 🚀 快速开始
+</div>
 
-### 安装依赖
-
-```bash
-pip install pywebview
-```
-
-### 运行程序
-
-```bash
-# 方法1: Python脚本
-python run.py
-
-# 方法2: 批处理 (Windows)
-run.bat
-
-# 方法3: 测试导入
-python test_import.py
-```
-
-### 编译可执行文件
-
-```bash
-# 安装编译工具
-pip install pyinstaller
-
-# 编译
-build.bat
-# 或
-pyinstaller build.spec --clean --noconfirm
-
-# 运行
-dist\LinuxLogAnalyzer.exe
-```
-
-## 📖 文档
-
-- [快速开始](docs/QUICK_START.md) - 5分钟上手指南
-- [开发指南](docs/DEVELOPMENT.md) - 开发环境搭建和API说明
-- [架构设计](docs/ARCHITECTURE.md) - 系统架构和设计思路
-- [代码审查](docs/CODE_REVIEW_SUMMARY.md) - 代码质量评估
-- [更新日志](CHANGELOG.md) - 版本更新记录
-
-## 🏗️ 技术栈
-
-### 后端
-- Python 3.8+
-- SQLite3 (数据缓存)
-- PyWebview (桌面应用框架)
-
-### 前端  
-- React 18
-- TypeScript
-- Vite
-
-## 📁 项目结构
-
-```
-linux-log-analyzer-opensource/
-├── backend/              # 后端Python代码
-│   ├── core/            # 核心模块
-│   │   ├── audit_statistics.py      # 审计日志统计
-│   │   ├── cache_manager.py         # SQLite缓存
-│   │   ├── event_mappings.py        # 事件映射
-│   │   ├── host_manager.py          # 主机管理
-│   │   ├── log_event.py             # 事件结构
-│   │   ├── log_manager.py           # 日志管理
-│   │   ├── log_types.py             # 类型定义
-│   │   ├── statistics_service.py    # 统计服务
-│   │   └── year_resolver.py         # 年份解析
-│   ├── parsers/         # 日志解析器
-│   │   ├── audit_parser.py          # Audit日志
-│   │   ├── syslog_parser.py         # Syslog格式
-│   │   ├── utmp_parser.py           # UTMP/WTMP/BTMP
-│   │   └── lastlog_parser.py        # Lastlog
-│   ├── api.py           # 业务逻辑API
-│   ├── webview_api.py   # PyWebview接口
-│   └── main.py          # 主入口
-├── frontend/            # 编译后的前端
-├── docs/                # 文档
-├── run.py               # 运行脚本
-├── build.spec           # 编译配置
-└── test_import.py       # 测试脚本
-```
-
-## 🧪 测试
-
-```bash
-# 导入测试
-python test_import.py
-
-# 预期输出
-✓ backend version: 1.0.0
-✓ core modules imported
-✓ parsers imported
-✓ API imported
-✓ WebView API imported
-✅ All imports successful!
-```
-
-## 📊 支持的日志类型
-
-| 日志类型 | 格式 | 说明 |
-|---------|------|------|
-| audit | 文本 | Linux审计日志 |
-| secure | syslog | 安全日志(RHEL/CentOS) |
-| auth | syslog | 认证日志(Debian/Ubuntu) |
-| btmp | 二进制 | 失败登录记录 |
-| wtmp | 二进制 | 登录记录 |
-| lastlog | 二进制 | 最后登录 |
-
-## 🎯 核心功能
-
-### 日志解析
-- ✅ 自动识别日志类型
-- ✅ 智能年份推断
-- ✅ 批量处理优化
-- ✅ 错误统计和报告
-
-### 统计分析
-- ✅ 登录成功/失败统计
-- ✅ Top失败IP/用户
-- ✅ 时间趋势分析
-- ✅ 事件类型分布
-
-### 多主机管理
-- ✅ 自动识别主机IP
-- ✅ 支持中文备注
-- ✅ 目录结构自适应
-- ✅ 文件聚合管理
-
-## 🔧 开发
-
-### 环境要求
-- Python 3.8+
-- pip
-
-### 开发模式
-
-```bash
-# 克隆项目
-git clone <repository-url>
-cd linux-log-analyzer-opensource
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 运行
-python run.py
-```
-
-### 添加新日志类型
-
-1. 在 `backend/core/log_types.py` 定义类型
-2. 创建解析器 `backend/parsers/new_parser.py`
-3. 注册解析器 `backend/parsers/__init__.py`
-4. 添加事件映射 `backend/core/event_mappings.py`
-
-详见 [开发指南](docs/DEVELOPMENT.md)
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request!
-
-### 贡献流程
-1. Fork 项目
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
-
-## 🙏 致谢
-
-感谢所有为本项目做出贡献的开发者!
-
-## 📞 联系方式
-
-- Issues: [GitHub Issues](https://github.com/your-repo/issues)
-- Email: your-email@example.com
-- 文档: [在线文档](https://your-docs-url)
-
-## 🌟 Star History
-
-如果这个项目对你有帮助,请给个 Star ⭐
+- **最新版本**: 1.0.0（测试版）
+- **更新日期**: 2025/12/23
+- **下载地址**:  [https://github.com/vam876/FastLinLog/releases/tag/v1.0.0](https://github.com/vam876/FastWinLog/releases/tag/v1.0.0)
 
 ---
 
-**Made with ❤️ by the Linux Log Analyzer Team**
+<img width="1597" height="1008" alt="image" src="https://github.com/user-attachments/assets/4adea553-31e1-4ccb-aafe-004d7715b928" />
+
+---
+
+## FastLinLog如何提升分析效率？
+做Linux安全运维、攻防排查、应急响应，难免面临下面痛点：
+- 日志文件杂乱无章：xxx.log、xxx.log.1、xxx.log.2 分散存放，分析时要逐个处理，重复劳动累到吐；
+- 多服务器分析混乱：多台服务器日志分析，反复切换日志文件，手忙脚乱；
+- 日期识别踩坑不断：很多日志没有年份信息，跨年度分析时日期错乱，排查方向直接跑偏，手动调整工作繁琐；
+- 关键信息难挖掘：想找暴力破解、异常登录、权限变更等风险点，靠命令行筛选半天，还容易遗漏；
+- 分析结果无直观展示：一堆零散的日志文本，安全态势、攻击趋势没法可视化呈现，汇报全靠嘴说；
+- 中文事件映射：内置了100+中文事件映射，权限变更、密码修改、sudo执行一目了然
+- AI分析赋能：Linux日志看不懂？一键将一条或者多条日志发送给AI分析。
+
+<img width="1597" height="1008" alt="image" src="https://github.com/user-attachments/assets/62548a2e-9047-4314-b710-58ba92bdca06" />
+
+**苦Linux日志安全分析久矣？告别 grep/awk/sed 组合拳折磨，安全日志秒级解析，安全风险一键洞察。现在，FastLinLog 一站式解决所有问题！集成AI能力，搭配专属提示词与上下文工程，把复杂的日志分析变成"点一点"的简单操作！**
+
+---
+
+## 核心功能 异于传统命令行分析
+
+### 智能日志聚合 告别零散混乱
+自动帮你"整理"日志，省去80%的准备工作：
+- 同类日志自动合并：针对轮转生成的xxx.log、xxx.log.1、xxx.log.2系列文件，以及按日期命名的xxx.log-20241215等格式日志，可自动识别归属为同一类日志完成聚合分析，全程无需手动归类整理；
+- 按IP自动分类归档：导入日志后，自动在 logs 目录下按主机IP创建分类文件夹，不同服务器的日志分门别类存放，折叠展开自由切换，查找某台主机的日志一眼就能找到；
+- 灵活导入方式：支持手动打开单个日志文件、选择整个文件夹批量导入，不管是本地日志还是从服务器下载的日志包，都能快速处理。
+
+### 智能日期识别 告别分析跑偏
+彻底解决日志无年份、日期错乱的痛点：
+- 基于文件名智能识别：自动解析日志文件名中的日期信息（如 secure-20241215、auth.log.2024-12-15），精准补全年份；
+- 时间轴自动校准：不同格式、不同时间段的日志，自动按时间轴排序整合，跨年度、跨月份分析再也不会出现日期混乱的问题。
+
+### 可视化分析仪表盘 安全态势一目了然
+把枯燥的日志变成直观的图表，关键信息不遗漏：
+- 核心态势概览：成功/失败登录次数、唯一登录用户数、唯一来源IP数、风险事件数一键查看；
+- Top排行榜：自动统计活跃用户TOP10、来源IP TOP10、失败登录用户TOP10、攻击IP TOP10，可疑对象一眼锁定；
+- 多维度时间趋势：支持12小时、日、周、月、年5种时间粒度切换，直观查看登录趋势、攻击频率变化，轻松发现异常波动；
+- 多维度分布图表：事件类型（登录、权限变更、程序执行等），全面掌握日志核心信息。
+<img width="1601" height="1008" alt="image" src="https://github.com/user-attachments/assets/928cfcf4-4e64-442b-9031-7998b0750b07" />
+
+### 深度交互分析 精准定位问题
+<img width="1920" height="1017" alt="image" src="https://github.com/user-attachments/assets/400429ea-1e07-4cfe-b128-6151c94abf9d" />
+
+比命令行筛选高效10倍，精准挖掘关键信息：
+- 点击穿透溯源：点击任意IP、用户名，立即展示该对象的所有相关日志事件，完整还原操作轨迹；
+- 多条件组合过滤：支持按时间范围、操作结果（成功/失败）、事件类型（登录、异常退出、权限变更）等多条件组合筛选，精准锁定目标；
+- 全文搜索：输入关键词（如"sudo""failed""invalid user"），秒级检索，关键信息瞬间定位；
+- 数据溯源清晰：每一条分析结果都标注来源日志文件，聚合关系、数据出处一目了然，排查有据可依；
+- 时间范围筛选：支持自定义时间区间选择，深度洞察攻击痕迹
+- 多条件筛选： 多字段关联搜索，精准溯源
+
+### 基于上下文工程知识库的AI分析 懂日志更懂安全
+内置专属上下文工程知识库，无需额外配置，打开就能用的AI日志分析师！适配Linux日志场景，支持批量日志分析：
+- 实时对话解读：遇到看不懂的日志条目，直接复制给AI，秒级给出清晰解读，包括日志类型、关键信息、可能的风险等级；
+- 一键风险研判：选中可疑日志片段，点击"AI分析"，自动识别安全风险（如暴力破解尝试、异常权限操作），并给出排查建议；
+- 批量日志关联分析：支持选中多条日志批量提交AI分析，自动关联同一IP、同一用户、同一时间段的所有日志，还原完整操作链路，精准定位攻击路径与风险蔓延范围；
+
+### 全面日志类型支持 覆盖所有核心场景
+
+| 日志类型 | 说明 | 格式 | 解析能力 |
+|----------|------|------|----------|
+| **audit** | Linux系统审计日志（权限变更、文件操作等） | 文本 | 深度解析，提取关键操作详情 |
+| **secure** | CentOS/RHEL系列安全认证日志 | 文本 | 深度解析，精准识别登录/认证事件 |
+| **auth** | Debian/Ubuntu系列认证日志 | 文本 | 深度解析，适配不同发行版格式 |
+| **btmp** | 失败登录记录 | 二进制 | 完整解析，提取失败用户名/IP/时间 |
+| **wtmp** | 登录/注销记录（含成功登录） | 二进制 | 完整解析，还原登录会话信息 |
+| **lastlog** | 用户最后登录记录 | 二进制 | 完整解析，快速查看用户登录状态 |
+
+**正式版将支持更多的日志** 
+
+## 3步上手 零门槛
+### 方式一：直接运行（推荐，小白友好）
+1. 下载 `FastLinuxLog.exe`（Windows）；
+2. 双击运行程序，无需安装任何依赖；
+3. 点击"刷新按钮"，即可加载logs目录下的日志；点击"打开日志"，选择单个日志文件，自动开始聚合分析，坐等结果！
+
+### 方式二：从源码运行（开发者/进阶用户，暂未开源）
+```bash
+# 注：项目当前处于完善阶段，暂未开源
+# 开源后将同步发布完整源码与克隆地址
+# 如需体验，可通过方式一下载编译后程序运行
+# 使用PyInstaller打包，可以使用技术手段获取源码 
+```
+
+### 推荐日志目录结构（自动识别，无需手动整理）
+```
+logs/
+├── 10.10.10.49/           # 自动按服务器IP分类
+│   ├── audit/
+│   │   └── audit.log
+│   ├── secure/
+│   │   ├── secure
+│   │   ├── secure.1
+│   │   └── secure-20241215  # 带日期的日志
+│   └── wtmp/
+│       └── wtmp
+├── 10.10.10.50/           # 另一台服务器日志
+│   └── ...
+└── local/                  # 本地主机日志
+    └── auth.log
+```
+
+**提示：** 将日志放到程序运行目录的logs目录下，即使你的日志目录不规范，程序也能自动识别分类，推荐结构只是让分析更清晰！
+
+---
+
+## 未来规划 持续升级
+- [ ] 更多的Linux日志类型支持：文本+二进制日志完整解析；
+- [ ] 日志导出功能：支持导出CSV/Excel表格；
+- [ ] 高度自定义安全规则：支持自定义安全告警规则（如失败登录阈值、异常IP访问、敏感权限变更等），精准匹配业务安全需求；
+- [ ] 安全告警规则分析：基于自定义规则自动扫描日志，识别违规事件并生成告警详情，支持告警级别划分（低/中/高/紧急）；
+- [ ] 定时任务功能：支持配置定时扫描任务，自动同步服务器日志、定时执行分析，无需人工干预；
+- [ ] 多Linux系统日志深度分析：扩展支持message、boot、syslog等更多Linux系统日志类型，覆盖全场景日志分析需求；
+- [ ] 开源计划：项目完善后将正式开源，接受社区贡献与优化建议。
+
+---
+
+## 贡献与支持
+项目当前处于完善阶段，暂未开源。欢迎关注本仓库，开源后将同步开放Issue反馈与Pull Request贡献通道！
+
+如果这个项目帮到了你，欢迎关注本仓库，后续开源后第一时间获取更新，一起摆脱Linux日志分析的痛苦！
+
+---
+
+## 许可证
+
+MIT License - 详见 [LICENSE](LICENSE) 文件
+
+---
+
+<div align="center">
+
+**让Linux日志安全分析，从此不再是噩梦！**
+
+</div>
